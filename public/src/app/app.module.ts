@@ -4,11 +4,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './http.service';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { DogComponent } from './dog/dog.component';
+import { NewdogComponent } from './newdog/newdog.component';
+import { StupidcomponentComponent } from './stupidcomponent/stupidcomponent.component';
 
 @NgModule({
   // components go in here
   declarations: [ 
-    AppComponent,
+    AppComponent, DogComponent, NewdogComponent, StupidcomponentComponent,
   ],
   // module imports in here
   imports: [

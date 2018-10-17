@@ -1,0 +1,9 @@
+<img src={{sdawg.url}}>
+<p>Name: {{sdawg.name}}</p>
+<p>Breed: {{ sdawg.breed ? sdawg.breed:'None Provided' }}</p>
+<p>Avg Rating: {{ sdawg.avgrating?sdawg.avgrating:'No ratings yet' }}</p>
+<p>Ratings: {{sdawg.ratings.length}}</p>
+
+<div *ngFor="let rating of sdawg.ratings">
+ <p>  {{rating.rating}} - {{rating.comment}} </p>
+</div>

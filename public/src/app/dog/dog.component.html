@@ -1,0 +1,19 @@
+<div class="container">
+  <img width="200" src={{dog.url}} (click)="setDog(dog._id)">
+</div>
+
+<button (click)="deleteDog()">Delete</button>
+<div class="formmargin">
+    <p>
+      Rate {{dog.name}} : 
+        <select name="rating" [(ngModel)]="rating.rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+    </p>
+    <textarea name="comment" cols="25" rows="10" [(ngModel)]="rating.comment"></textarea><br>
+    <button (click)="createRating()">Send Rating!</button>
+</div>

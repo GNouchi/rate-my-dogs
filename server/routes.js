@@ -9,6 +9,6 @@ module.exports = (app)=>{
     app.post('/dogs', api.newDog)
     app.delete('/dogs/:dogid', api.removeDog)
     app.put('/dogs/:dogid', api.updateDog)
-    app.post('/dogs/ratings/:dogid', api.newRating)
+    app.put('/dogs/ratings/:dogid', api.newRating)
     return app;
 }

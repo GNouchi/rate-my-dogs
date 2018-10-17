@@ -1,0 +1,19 @@
+.master{
+    border: 1px solid grey; 
+    max-width: 800px;
+    max-height: 400px;
+    overflow: auto;
+    display: inline-block;
+}
+
+.component{
+    max-width: 600px;
+    display: inline-block;
+    vertical-align: top;
+    padding:100px;
+    padding-top: 0px;
+}
+
+.hide{
+    display:none;
+}

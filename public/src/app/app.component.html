@@ -1,7 +1,19 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<div style="text-align:center"><h1> Welcome to Rate my Dogs </h1></div>
+<!-- this button self hides and doesnt really havea  use -_-"" -->
+<div class = "{{ dogs==undefined? 'show':'hide' }}" >
+    <button (click)="getDogs()"> Get Dogs</button>
 </div>
 
+    <div class="component">
+            <app-newdog></app-newdog>
+    </div>  
+    <div class ="master">
+            <app-dog *ngFor= "let dog of dogs" [dog]="dog"></app-dog>
+    </div>
 
+<p></p>
+<div class="component">
+    <app-stupidcomponent *ngIf="selecteddog" [sdawg]="selecteddog" ></app-stupidcomponent>
+</div><br>
+
+    

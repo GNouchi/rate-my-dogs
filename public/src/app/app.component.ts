@@ -10,9 +10,32 @@ const FgYellow = "\x1b[33m\x1b[1m",
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Rate my Dogs';
-  dogs = [];
-  constructor (private _httpService: HttpService){  }
+  dogs:any;
+  selecteddog:any;
 
+  constructor (private _httpService: HttpService){ this.getDogs(); }
+
+  getDogs=()=> this._httpService.getDogs()
+    .subscribe( data => { this.dogs = data; makeTable(this.dogs); })
+
+  setDog=(dogid:string)=> this._httpService.getSingleDog(dogid)
+    .subscribe ( data => {
+      this.selecteddog = data;
+      this.selecteddog.avgrating = (data['ratings'].length > 0)
+      ? data['ratings']
+        .map( ( {rating}: obj )=> rating )
+        .reduce( (total, current) => total + current)/data['ratings'].length
+      :null;
+    })    
 
 }
+
+
+
+  // // api service 
+  // getDogs=()=> this._http.get('/dogs');
+  // getSingleDog=(dogid)=> this._http.get('/dogs/'+dogid);
+  // createDog=(Dog)=> this._http.post('/dogs', Dog);
+  // deleteDog=(dogid)=> this._http.delete('/dogs/'+dogid);
+  // editDog=( dogid, editabledog )=> this._http.put( '/dogs/'+dogid, editabledog );  
+  // createReview=( dogid, newreview )=> this._http.put( '/dogs/ratings/'+dogid, newreview );  
